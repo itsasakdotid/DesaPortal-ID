@@ -1,0 +1,212 @@
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px; 
+  background-color: #f1f5f9;
+  background-image: radial-gradient(circle at 100% 0%, #dcfce7 0%, transparent 40%),
+                    radial-gradient(circle at 0% 100%, #ffedd5 0%, transparent 40%);
+}
+
+.heroContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(21, 128, 61, 0.1);
+  color: var(--color-primary-dark);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(21, 128, 61, 0.2);
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text-main);
+  margin-bottom: 1.5rem;
+}
+
+.title span {
+  color: var(--color-primary);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+  line-height: 1.7;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.graphicPlaceholder {
+  width: 100%;
+  height: 450px;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Organic shape */
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  animation: morph 8s ease-in-out infinite alternate;
+}
+
+@keyframes morph {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.floatingCard {
+  position: absolute;
+  bottom: 20px;
+  left: -30px;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: float 5s ease-in-out infinite;
+}
+
+.floatingCard h4 {
+  font-size: 1rem;
+  color: var(--color-text-main);
+  margin-bottom: 0.25rem;
+}
+
+.floatingCard p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Quick Access */
+.quickAccess {
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 5rem;
+}
+
+.qaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.qaCard {
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.qaCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.qaIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background-color: rgba(21, 128, 61, 0.1);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.qaCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-main);
+}
+
+.qaCard p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* Transparency Section */
+.transparencySection {
+  padding: 4rem 0 6rem;
+}
+
+.transparencyBox {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  border-radius: var(--radius-lg);
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.tStats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.statItem {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.statLabel {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.statValue {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-accent-light);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .heroContainer, .transparencyBox {
+    grid-template-columns: 1fr;
+  }
+  
+  .heroContent {
+    text-align: center;
+  }
+  
+  .subtitle { margin: 0 auto 2.5rem; }
+  .heroActions { justify-content: center; }
+  
+  .graphicPlaceholder { height: 350px; }
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 2.5rem; }
+  .transparencyBox { padding: 2rem; }
+}
